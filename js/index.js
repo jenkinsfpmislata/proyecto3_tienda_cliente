@@ -22,22 +22,6 @@ function categorias() {
     });
 }
 
-//function todos_articulos() {
-//    //carga todos los productos en datatable
-//    $.ajax({
-//        dataType: 'json',
-//        url: 'articulos.php',
-//        success: function(data) {
-//            datos = '<thead><tr><th>ID_Producto</th><th>Nombre</th><th>Precio</th><th>Vista Previa</th></tr></thead><tbody>';
-//            $.each(data, function(index) {
-//                datos += '<tr><td>' + data[index].id_producto + '</td><td>' + data[index].nombre + '</td><td>' + data[index].precio + '</td><td><img src=../img/' + data[index].id_producto + '.jpg' + '></td><td><a href="javascript:button_modify(' + data[index].id_producto + ')" id="form_insert2"><i class="icon-edit"></i></a></td><td><a href="javascript:articulo_borrar(' + data[index].id_producto + ',' + data[index].id_categoria + ')"><i class="icon-remove"></i></a></td></tr>';
-//            });
-//            datos += '</tbody></table></div>';
-//            $('#container').html(datos);
-//        }
-//    });
-//}
-//load products
 function articulos(id_categoria, nombre) {
 
     $.ajax({
@@ -48,13 +32,86 @@ function articulos(id_categoria, nombre) {
 
             datos = '';
             $.each(data, function(index) {
-
-                datos += '<div class="col-sm-4 col-lg-4 col-md-4"><div id="'+data[index].id_producto+'"class="thumbnail"><img src="img/' + data[index].id_producto + '.jpg" alt=""><div class="caption"><h4 class="pull-right">' + data[index].precio + '€</h4> <h4><a href="#">' + data[index].nombre + '</a></h4><p>' + data[index].descripcion + '</p><div align="center"><button type="button" class="btn btn-default" onClick="anyade('+data[index].id_producto+')">Añadir  <i class="glyphicon glyphicon-shopping-cart"></i></button></div></div><div class="ratings"><p class="pull-right">12 reviews</p><p><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star-empty"></span></p></div></div></div>';
-
+                datos += '<div class="col-sm-4 col-lg-4 col-md-4"><div id="' + data[index].id_producto + '"class="thumbnail"><img src="img/' + data[index].id_producto + '.jpg" alt=""><div class="caption"><h4 class="pull-right">' + data[index].precio + '€</h4> <h4><a href="#">' + data[index].nombre + '</a></h4><p>' + data[index].descripcion + '</p><div align="center"><button type="button" class="btn btn-default" onClick="anyade(' + data[index].id_producto + ')">Añadir  <i class="glyphicon glyphicon-shopping-cart"></i></button></div></div><div class="ratings"><p class="pull-right">12 reviews</p><p><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star-empty"></span></p></div></div></div>';
             });
             datos += '';
-
             $('#container_productos.row').html(datos);
         }
     });
-}    
+    $.ajax({
+        dataType: 'json',
+        url: 'articulos_categorias.php?id_categoria=' + id_categoria,
+        type: 'GET',
+        success: function(data) {
+
+            datos = '<div class="col-md-12 ">';
+            datos += '<div>'
+            datos += '<ol class="breadcrumb">';
+            datos += '<li>';
+            datos += '<a href="index.html">Home</a><span class="divider"></span>';
+            datos += '</li>'
+            datos += '<li class="active">' + nombre + '</li>'
+            datos += '</ol>';
+            datos += '</div>';
+            datos += '</div>';
+
+
+            $('#breadcum').html(datos);
+        }
+    });
+}
+var id_usuario = 1;
+function myAccount(idUsuario) {
+    $.ajax({
+        dataType: 'json',
+        url: 'usuarios.php?id_usuario=3',
+        type: 'GET',
+        success: function(data) {
+
+            datos = '';
+            $.each(data, function(index) {
+                datos += '<div class="panel mipanel-default"><div class="panel-heading"><a class="mipanel-default collapsed glyphicon glyphicon-user" data-toggle="collapse" data-parent="#" href="#" onclick="javascript:showMyAccount()"> My Account (' + data[index].id_usuario + ')</a></div><div id="" class="list-group panel-collapse collapse"><a href="#" class="list-group-item ">&nbsp;  Categories</a></div></div>';
+            });
+            datos += '<br>';
+            datos += '';
+            $('#myAccount').html(datos);
+        }
+    });
+}
+function showMyAccount(id_usuario) {
+    $.ajax({
+        dataType: 'json',
+        url: 'usuarios.php?id_usuario=3',
+        type: 'GET',
+        success: function(data) {
+            datos = '';
+            $.each(data, function(index) {
+                datos = '<div class="col-md-4 form "><form>';
+                datos += '<h2>My Account</h2><hr>'
+                datos += 'Nombre:<input type="text" class="form-control" placeholder="'+data[index].nombre+'" name="nombre">'
+                datos += 'Apellidos: <input type="text" class="form-control" placeholder="'+data[index].apellidos+'" name="apellidos">'
+                datos += 'Mail: <input type="text"class="form-control"  placeholder="'+data[index].mail+'" name="mail">'
+                datos += 'Ciudad de residencia: <input type="text" class="form-control" placeholder="'+data[index].ciudad+'" name="ciudad">'
+                datos += '</form></div>'
+            });
+            datos += '<br>';
+            datos += '';
+            $('#breadcum').html(datos);
+        }
+    });
+    $.ajax({
+        dataType: 'json',
+        url: 'usuarios.php?id_usuario=3',
+        type: 'GET',
+        success: function(data) {
+            datos = '<a href="#" class="glyphicon glyphicon-log-out" data-toggle="dropdown" onClick="javascript:reload()"> Logout</a>';
+            $('#container_productos').html(datos);
+            $('#login').html(datos);
+            
+            
+        }
+    });
+}
+function reload(){
+    location.reload();
+}

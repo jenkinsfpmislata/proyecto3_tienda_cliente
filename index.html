@@ -19,58 +19,17 @@
         <!--<link href="styles/demo_style.css" rel="stylesheet">-->
 
     </head>
-    <script>
-        
-
+    <script type="text/javascript">
         window.onload = function() {
             carrito = new carrito("carrito");
 
         }
-        function login(){
-            alert("ola");
+        function login() {
+            myAccount(1);
         }
-
-
     </script>
-    <style type="text/css">
-
-        .no_margin_left {
-            margin-left: 0;
-        }
-        .fuelux input.span4{
-            width: 160px;
-        }
-        .input-mini{
-            width: 60px;
-        }
-        input[class*="span"]{
-            float:none;
-            margin-left:0;
-        }
-        .span5{
-            width: 600px;
-        }
-
-        .span6{
-            width: 280px;
-            float: left;
-            margin-right:  10px;
-        }
-        .span7{
-            float: left;
-            width: 280px;
-        }
-        .control-group{
-            margin-bottom: 9px;
-        }
-        tr th{
-            background-color: #333333;
-            color:white;
-        }
-
-    </style>
     <body>
-        
+
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <div class="container">
                 <div class="navbar-header">
@@ -87,13 +46,12 @@
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav">
                         <li><a class="glyphicon glyphicon-file" href="#about"> Categories</a></li>
-                        <li><a class="glyphicon glyphicon-globe" href="#services"> Services</a></li>
-                        <li><a class="glyphicon glyphicon-envelope" href="#contact"> Contact</a></li>
-                        <li><a class="glyphicon glyphicon-shopping-cart" href="cart.html"> Cart<span id="numeroCarrito1" class="badge badge-error">0</span></a></li>
+                        <li><a id="modal-106066" href="#modal-container-106066"  class="collapsed glyphicon glyphicon-envelope " data-toggle="modal"> Contact</a></li>
+                        <li><a id="modal-106067" href="#modal-container-106067"  class="collapsed glyphicon glyphicon-shopping-cart" data-toggle="modal" onclick="javascript:cargaProductos()"> Cart<span id="numeroCarrito1" class="badge badge-error">0</span></a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle glyphicon glyphicon-user" data-toggle="dropdown"> Login</a>
+                        <li class="dropdown" id="login">
+                            <a href="#" class="dropdown-toggle glyphicon glyphicon-log-in" data-toggle="dropdown" > Login</a>
                             <ul class="dropdown-menu">
                                 <li>
                                     <div class="col-md-12 column">
@@ -104,7 +62,7 @@
                                             <div class="form-group">
                                                 <label for="exampleInputPassword1">Password</label><input type="password" class="form-control" id="exampleInputPassword1" />
                                             </div>
-                                            <button type="button" onClick="javascript:login()"class="btn btn-default">Submit</button>
+                                            <button type="button" onClick="javascript:login()" class="btn btn-default">Submit</button>
                                         </form>
                                     </div>
                                 </li>
@@ -147,39 +105,20 @@
                     <div class="container">
                         <div class="row clearfix">
                             <div class="col-md-3 column">
+
+                                <div class="panel-group" id="myAccount"></div>
                                 <div class="panel-group" id="panel-88383">
-                                    <div class="panel mipanel-default">
-                                        <div class="panel-heading">
-                                            <a class="mipanel-default collapsed glyphicon glyphicon-home" data-toggle="collapse" data-parent="#panel-88383" href="index.html" > Home</a>
-                                        </div>
-                                    </div>
                                     <div class="panel mipanel-default">
                                         <div class="panel-heading">
                                             <a class="mipanel-default collapsed glyphicon glyphicon-file" data-toggle="collapse" data-parent="#panel-88383" href="#panel-element-305610"> Categories</a>
                                         </div>
                                         <div id="panel-element-305610" class="list-group panel-collapse collapse">
-                                            <!-- <a href="#" class="list-group-item ">&nbsp;  Categories</a>
                                             <a href="#" class="list-group-item ">&nbsp;  Categories</a>
-                                            <a href="#" class="list-group-item ">&nbsp;  Categories</a>
-                                            <a href="#" class="list-group-item ">&nbsp;  Categories</a>
-                                            <a href="#" class="list-group-item ">&nbsp;  Categories</a>
-                                            <a href="#" class="list-group-item ">&nbsp;  Categories</a>-->
                                         </div>
                                     </div>
                                     <div class="panel mipanel-default">
                                         <div class="panel-heading">
-                                            <a class="mipanel-default  glyphicon glyphicon-globe" data-toggle="collapse" data-parent="#panel-88383" href="#panel-element-82927"> Services</a>
-                                        </div>
-                                        <div id="panel-element-82927" class="panel-collapse collapse">
-                                            <a href="events.html" class="list-group-item ">&nbsp;  Sport Events</a>
-                                            <a href="employment.html" class="list-group-item ">&nbsp;  Employment</a>
-                                            <a href="advice.html" class="list-group-item ">&nbsp;  Advice Service</a>
-                                        </div>
-                                    </div>
-
-                                    <div class="panel mipanel-default">
-                                        <div class="panel-heading">
-                                            <a id="modal-106066" href="#modal-container-106066" role="button" class="mipanel-default collapsed glyphicon glyphicon-envelope " data-toggle="modal"> Contact</a>
+                                            <a id="modal-106066" href="#modal-container-106066" role="button" class="mipanel-default collapsed glyphicon glyphicon-envelope " data-toggle="modal" > Contact</a>
                                             <div class="modal fade " id="modal-container-106066" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">
@@ -245,19 +184,19 @@
 
                                                                                 <table class="table table-bordered">
                                                                                     <thead>
-                                                                                    <tr>
-                                                                                        <th>Remove</th>
-                                                                                        <th>Image</th>
-                                                                                        <th>Product Name</th>
+                                                                                        <tr>
+                                                                                            <th>Remove</th>
+                                                                                            <th>Image</th>
+                                                                                            <th>Product Name</th>
 
-                                                                                        <th>Quantity</th>
-                                                                                        <th>Unit Price</th>
-                                                                                        <th>Total</th>
-                                                                                    </tr>
+                                                                                            <th>Quantity</th>
+                                                                                            <th>Unit Price</th>
+                                                                                            <th>Total</th>
+                                                                                        </tr>
                                                                                     </thead>
                                                                                     <tbody id="bodyTablaProductosCarrito">
-                                                                                    
-                                                                                    
+
+
                                                                                     </tbody>
                                                                                 </table>
                                                                             </div>
@@ -359,19 +298,19 @@
                                                                                         <th colspan="4">CHOOSE A SHIPPING OPTION FOR</th>
                                                                                     <tr>
                                                                                         <td><input type="radio" value="option1" id="optionsRadio" name="radioShipping"></td>
-                                                                                        <td><img src="img/server_new.png"></td>
+                                                                                        <td><img src="img/dhl.jpg"></td>
                                                                                         <td><strong>Store</strong><br>Pick up in Store <br> The best price and speed</td>
                                                                                         <td>Free!</td>
                                                                                     </tr>
                                                                                     <tr>
                                                                                         <td><input type="radio" value="option1" id="optionsRadio" name="radioShipping"></td>
-                                                                                        <td><img src="img/server_new.png"></td>
+                                                                                        <td><img src="img/dhl.jpg"></td>
                                                                                         <td><strong>DHL</strong><br>Delibery in 36/72h</td>
                                                                                         <td>6€</td>
                                                                                     </tr>
                                                                                     <tr>
                                                                                         <td><input type="radio" value="option1" id="optionsRadio" name="radioShipping"></td>
-                                                                                        <td><img src="img/server_new.png"></td>
+                                                                                        <td><img src="img/dhl.jpg"></td>
                                                                                         <td><strong>DHL</strong><br>Delibery in 24h</td>
                                                                                         <td>10€</td>
                                                                                     </tr>
@@ -382,11 +321,6 @@
 
                                                                     </td></tr>
                                                             </table>
-
-
-
-
-
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -405,27 +339,18 @@
                                         practice the most practiced sports nowadays. 
                                         Everything With our guarantee that you will 
                                         get the best products at the best price.</p>
-                                    <a class="btn btn-primary" target="_blank" href="http://google.com/">
-                                        Enter</a>
+
                                 </div>
                             </div>
                         </div>
 
                     </div>
-                    <!--<div class="list-group">
-                        <a href="#" class="list-group-item glyphicon glyphicon-file glyphicon-home">&nbsp;  Productos</a>
-                        <a href="#" class="list-group-item glyphicon glyphicon-globe">&nbsp;  Servicios</a>
-                        <a href="#" class="list-group-item glyphicon glyphicon-list">&nbsp;  Categorias</a>
-                        <a href="#" class="list-group-item glyphicon glyphicon-envelope">&nbsp;  Contacto</a>
-                        <a href="#" class="list-group-item glyphicon glyphicon-user">&nbsp;  Login</a>
-                        <a href="#" class="list-group-item glyphicon glyphicon-shopping-cart">&nbsp;  Cesta</a>
-                    </div>
-                    -->
+
                 </div>
 
                 <div class="col-md-9">
 
-                    <div class="row carousel-holder">
+                    <div class="row carousel-holder" id="breadcum">
 
                         <div class="col-md-12">
                             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -561,27 +486,27 @@
         });
         </script> -->
         <script type="text/javascript">
-    $(document).ready(function(){
-    	//  Wizard 1  	
-        $('#wizard').smartWizard({
-            transitionEffect:'fade',
-            onFinish:onFinishCallback,
-            onLeaveStep  : leaveAStepCallback,
-        });
-        function leaveAStepCallback(obj, context){
-            // To check and enable finish button if needed
-            if (context.fromStep >= 2) {
-                $('#wizard1').smartWizard('enableFinish', true);
+        $(document).ready(function() {
+            //  Wizard 1  	
+            $('#wizard').smartWizard({
+                transitionEffect: 'fade',
+                onFinish: onFinishCallback,
+                onLeaveStep: leaveAStepCallback,
+            });
+            function leaveAStepCallback(obj, context) {
+                // To check and enable finish button if needed
+                if (context.fromStep >= 2) {
+                    $('#wizard1').smartWizard('enableFinish', true);
+                }
+                return true;
             }
-            return true;
-        }
-    	//  Wizard 2
-      $('#wizard').smartWizard({transitionEffect:'slide',onFinish:onFinishCallback});
-      function onFinishCallback(){
-        comprar();
-      }     
-		});
-</script>
+            //  Wizard 2
+            $('#wizard').smartWizard({transitionEffect: 'slide', onFinish: onFinishCallback});
+            function onFinishCallback() {
+                comprar();
+            }
+        });
+        </script>
 
 
     </body>

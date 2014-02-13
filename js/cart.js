@@ -70,7 +70,7 @@ function carrito(nombre) {
 
             }
 
-            alert(libros);
+            //alert(libros);
             
 
         }
@@ -110,7 +110,7 @@ function carrito(nombre) {
         
         tbody = document.getElementById("bodyTablaProductosCarrito");
         tbody.innerHTML ="";
-        alert("carga tabla");
+        //alert("carga tabla");
         for (i = 0; i < carrito.listaProductos.length; i++) {
              
              tbody.innerHTML += "<tr><td><a href='javascript:borrarArticulo("+carrito.listaProductos[i].id+")'>Borrar</a></td><td><img width='80' height='80' src='img/"+carrito.listaProductos[i].id+".jpg'></td><td>"+ carrito.listaProductos[i].nombre+"</td><td><p>"+carrito.listaProductos[i].unidades+"</p></td><td>"+carrito.listaProductos[i].precio+"€</td><td>"+carrito.listaProductos[i].total+"€</td></tr>"
@@ -122,7 +122,7 @@ function carrito(nombre) {
             
          for (i = 0; i < carrito.listaProductos.length; i++) {
              if(carrito.listaProductos[i].id==id){
-                 alert("borrar")
+                 //alert("borrar")
                  pos = i;
              }
         }
@@ -130,14 +130,14 @@ function carrito(nombre) {
         
         cargaProductos();
         carrito.actualizar();
-        alert("actualizado");
+        //alert("actualizado");
         carrito.verArticulos();
         
         }
         function comprar(){
             
             carritoJSON = JSON.stringify(carrito);
-            alert(carritoJSON);
+            //alert(carritoJSON);
             $.ajax({
 		  type:'POST',
 		  data:'datos='+carritoJSON,
@@ -145,7 +145,7 @@ function carrito(nombre) {
                   
 		  success: function(data){
 			 
-			alert("COMPRAO")
+			alert("Su compra se ha realizado con éxito")
 				  
 		  }
 			});

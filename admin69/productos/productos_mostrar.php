@@ -91,7 +91,7 @@ if (isset($_SESSION["root"]))
                                 </div>
                                 <div class="btn-group">
                                     <a class="btn btn-danger btn-sm" data-placement="bottom" data-original-title="Logout" rel="tooltip"
-                                       href="../login.html"><i class="icon-off"></i></a></div>
+                                       href="../logout.php"><i class="icon-off"></i></a></div>
                             </div>
                             <!-- /.topnav -->
                             <div class="nav-collapse collapse">
@@ -103,9 +103,9 @@ if (isset($_SESSION["root"]))
                                             Options <b class="caret"></b>
                                         </a>
                                         <ul class="dropdown-menu">
-                                            <li><a href="../productos/productos_mostrar.html">Products</a></li>
-                                            <li><a href="../usuarios/usuarios_mostrar.html">Users</a></li>
-                                            <li><a href="../pedidos/pedidos_mostrar.html">Orders</a></li>
+                                            <li><a href="../productos/productos_mostrar.php">Products</a></li>
+                                            <li><a href="../usuarios/usuarios_mostrar.php">Users</a></li>
+                                            <li><a href="../pedidos/pedidos_mostrar.php">Orders</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -188,13 +188,13 @@ if (isset($_SESSION["root"]))
                         </ul>
                     </li>
                     <li>
-                        <a href="../usuarios/usuarios_mostrar.html">
+                        <a href="../usuarios/usuarios_mostrar.php">
                             <i class="icon-user icon-white"></i> Users <span 
                                 class="label btn-metis-6 pull-right">25</span>
                         </a>
                     </li>
                     <li>
-                        <a href="../pedidos/pedidos_mostrar.html">
+                        <a href="../pedidos/pedidos_mostrar.php">
                             <i class="icon-shopping-cart icon-white"></i> Orders <span 
                                 class="label btn-metis-6 pull-right">25</span>
                         </a>

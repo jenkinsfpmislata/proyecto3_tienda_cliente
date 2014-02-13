@@ -1,32 +1,32 @@
 .mipanel-default {
-  border-color: #dddddd;
+    border-color: #dddddd;
 }
 mipanel-default > .panel-heading {
-  color: #c9302c;
-  background-color: #ffffff;
-  border-color: #dddddd;
+    color: #c9302c;
+    background-color: #ffffff;
+    border-color: #dddddd;
 }
 a.mipanel-default{
-  color: #444444;
-  font-size: 18px;
+    color: #444444;
+    font-size: 18px;
 }
 a.mipanel-default:hover{
-  color: #000;
+    color: #000;
 }
 div.mipanel-default:hover{
     background-color: #cccccc;
 }
 
 .mipanel-default > .panel-heading + .panel-collapse .panel-body {
-  border-top-color: #dddddd;
+    border-top-color: #dddddd;
 }
 
 .mipanel-default > .panel-heading > .dropdown .caret {
-  border-color: #333333 transparent;
+    border-color: #333333 transparent;
 }
 
 .mipanel-default > .panel-footer + .panel-collapse .panel-body {
-  border-bottom-color: #dddddd;
+    border-bottom-color: #dddddd;
 }
 h4{
     font-size: 13px;
@@ -40,4 +40,39 @@ div div.modal_cart {
     padding-top: 10px;
     padding-bottom:10px; 
 
+}
+
+/*CSS INDEX*/
+.no_margin_left {
+    margin-left: 0;
+}
+.fuelux input.span4{
+    width: 160px;
+}
+.input-mini{
+    width: 60px;
+}
+input[class*="span"]{
+    float:none;
+    margin-left:0;
+}
+.span5{
+    width: 600px;
+}
+
+.span6{
+    width: 280px;
+    float: left;
+    margin-right:  10px;
+}
+.span7{
+    float: left;
+    width: 280px;
+}
+.control-group{
+    margin-bottom: 9px;
+}
+tr th{
+    background-color: #333333;
+    color:white;
 }
