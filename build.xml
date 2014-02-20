@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- You may freely edit this file. See commented blocks below for -->
+<!-- some examples of how to customize the build. -->
+<!-- (If you delete it and reopen the project it will be recreated.) -->
+<!-- By default, only the Clean and Build commands use this build script. -->
+<!-- Commands such as Run, Debug, and Test only use this build script if -->
+<!-- the Compile on Save feature is turned off for the project. -->
+<!-- You can turn off the Compile on Save (or Deploy on Save) setting -->
+<!-- in the project's Project Properties dialog box.-->
+<project name="Densetech" default="desplegarProduccion" basedir=".">
+    
+    <target name="replegarProduccion">
+        <property file="/home/jenkins/environments/proyecto3/proyecto3_tienda_cliente.properties"></property>
+        <sshexec host="${host}"	
+                 username="${user}" 
+                 password="${password}" 
+                 command="rm -fr ${path}" 
+                 trust="yes"
+        />
+    </target>
+    <target name="crearProduccion" depends="replegarProduccion">
+        <property file="/home/jenkins/environments/proyecto3/proyecto3_tienda_cliente.properties"></property>
+        <sshexec host="${host}"
+                 username="${user}"
+                 password="${password}"
+                 command="mkdir ${path}"
+                 trust="yes"
+        />
+    </target>
+    
+    <target name="desplegarProduccion" depends="crearProduccion">
+        <property file="/home/jenkins/environments/proyecto3/proyecto3_tienda_cliente.properties"></property>
+        <scp todir="${user}:${password}@${host}:${path}" trust="yes" >
+            <fileset dir=".">
+                <!-- <include name="**/*.java"/>-->
+            </fileset>
+        </scp>
+    </target>
+</project>
