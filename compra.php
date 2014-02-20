@@ -39,7 +39,7 @@ foreach ($carrito->listaProductos as $producto) {
 
 $transaccion = array('cuentaDestino='=>"1000",'cuentaOrigen'=>$cliente, 'importe'=> $precio);
 
-$urladdress = "/proyecto3_banco_servidor/api/TransaccionBancaria/";
+$urladdress = "http://pro2daw.pve.fpmislata.com/proyecto3_banco_servidor/api/TransaccionBancaria/";
 $data = json_encode($transaccion);
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $urladdress);
