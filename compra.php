@@ -37,7 +37,7 @@ foreach ($carrito->listaProductos as $producto) {
     
 }
 
-$transaccion = array('cuentaDestino='=>'1000','cuentaOrigen'=>'$cuenta', 'importe'=> $precio);
+$transaccion = array('cuentaDestino'=>'1000','cuentaOrigen'=>'1001', 'importe'=> 300);
 
 $urladdress = "http://pro2daw.pve.fpmislata.com/proyecto3_banco_servidor/api/TransaccionBancaria/";
 $data = json_encode($transaccion);
