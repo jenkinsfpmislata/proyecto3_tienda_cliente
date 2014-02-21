@@ -92,6 +92,14 @@ function myAccount() {
             datos2 += '';
             $('#breadcum').html(datos2);
             
+            document.getElementById("cartFirstName").value = data[0].nombre;
+            document.getElementById("cartLastName").value = data[0].apellidos;
+            document.getElementById("cartEmail").value = data[0].mail;
+            document.getElementById("cartZip").value = data[0].codigo_postal;
+            document.getElementById("cartProvince").value = data[0].provincia;
+            document.getElementById("cartCity").value = data[0].ciudad;
+            document.getElementById("cartAddress").value = data[0].direccion;
+            
             
         }
     });

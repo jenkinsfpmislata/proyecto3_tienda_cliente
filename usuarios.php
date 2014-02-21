@@ -15,11 +15,11 @@ while ($fila = mysql_fetch_array($result, MYSQL_ASSOC)) {
         'id_usuario' => $fila["id_usuario"], 
         'apellidos' => $fila["apellidos"], 
         'nombre' => $fila["nombre"], 
-        'mail' => $fila["mail"], /*
+        'mail' => $fila["mail"], 
         'codigo_postal' => $fila["codigo_postal"],
-        'provincia' => $fila["provincia"],*/
-        'ciudad' => $fila["ciudad"]/*,
-        'direccion' => $fila["direccion"]*/);
+        'provincia' => $fila["provincia"],
+        'ciudad' => $fila["ciudad"],
+        'direccion' => $fila["direccion"]);
     $i++;
 }
 
